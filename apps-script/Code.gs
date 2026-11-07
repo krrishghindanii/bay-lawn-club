@@ -1,4 +1,4 @@
-// The Bay Lawn Club: waitlist form → this Google Sheet.
+// waitlist form -> google sheet
 // Bound to the sheet. Deploy as Web app (Execute as: Me, Who has access: Anyone),
 // then paste the /exec URL into membership.html as the form action.
 

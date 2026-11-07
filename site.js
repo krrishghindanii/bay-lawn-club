@@ -1,8 +1,6 @@
-// Shared header/footer, crest, court lines, bouncing ball, mobile menu, reveal, waitlist form.
+// header/footer, crest, court svg, menu, waitlist form etc
 (function () {
-  // Painted Ladies badge: the Alamo Square Victorians with a ball for the sun,
-  // THE BAY LAWN CLUB around the top, SAN FRANCISCO around the bottom.
-  // Each copy gets its own ids so the curved text paths never collide.
+  // painted ladies badge. unique ids per copy or the textPaths clash
   var crestN = 0;
   function crest() {
     crestN++;
@@ -10,7 +8,7 @@
       '<circle cx="50" cy="50" r="48" stroke-width="1.4"/><circle cx="50" cy="50" r="31" stroke-width=".7"/><defs><path id="crest-t-@" d="M13.5 50 A36.5 36.5 0 0 1 86.5 50"/><path id="crest-b-@" d="M7.5 50 A42.5 42.5 0 0 0 92.5 50"/></defs><text font-family="Jost" font-size="7.2" letter-spacing="2.2" fill="currentColor" stroke="none" opacity="1" text-anchor="middle"><textPath href="#crest-t-@" startOffset="50%">THE BAY LAWN CLUB</textPath></text><text font-family="Jost" font-size="6.12" letter-spacing="2.2" fill="currentColor" stroke="none" opacity="1" text-anchor="middle"><textPath href="#crest-b-@" startOffset="50%">SAN FRANCISCO</textPath></text><g transform="translate(50 50) scale(.56) translate(-50 -50)"><path d="M12 72.4 V52.400000000000006 L18.5 44.9 L25 52.400000000000006 V72.4 Z" stroke-width="1.9"/><path d="M11 52.900000000000006 L18.5 43.7 L26 52.900000000000006" stroke-width="1.52"/><circle cx="18.5" cy="49.5" r="1.43" stroke-width="1.14"/><path d="M14.3 56.3 h4.4 v6.4 h-4.4 Z M14.3 64.0 h4.4 v4.4 h-4.4 Z" stroke-width="1.04"/><path d="M20.3 72.4 v-6.8 h2.6 v6.8" stroke-width="1.04"/><path d="M27 69.80000000000001 V49.80000000000001 L33.5 42.3 L40 49.80000000000001 V69.80000000000001 Z" stroke-width="1.9"/><path d="M26 50.30000000000001 L33.5 41.1 L41 50.30000000000001" stroke-width="1.52"/><circle cx="33.5" cy="46.9" r="1.43" stroke-width="1.14"/><path d="M29.3 53.7 h4.4 v6.4 h-4.4 Z M29.3 61.4 h4.4 v4.4 h-4.4 Z" stroke-width="1.04"/><path d="M35.3 69.80000000000001 v-6.8 h2.6 v6.8" stroke-width="1.04"/><path d="M42 67.2 V47.2 L48.5 39.7 L55 47.2 V67.2 Z" stroke-width="1.9"/><path d="M41 47.7 L48.5 38.5 L56 47.7" stroke-width="1.52"/><circle cx="48.5" cy="44.3" r="1.43" stroke-width="1.14"/><path d="M44.3 51.1 h4.4 v6.4 h-4.4 Z M44.3 58.8 h4.4 v4.4 h-4.4 Z" stroke-width="1.04"/><path d="M50.3 67.2 v-6.8 h2.6 v6.8" stroke-width="1.04"/><path d="M57 64.60000000000001 V44.60000000000001 L63.5 37.1 L70 44.60000000000001 V64.60000000000001 Z" stroke-width="1.9"/><path d="M56 45.10000000000001 L63.5 35.9 L71 45.10000000000001" stroke-width="1.52"/><circle cx="63.5" cy="41.7" r="1.43" stroke-width="1.14"/><path d="M59.3 48.5 h4.4 v6.4 h-4.4 Z M59.3 56.2 h4.4 v4.4 h-4.4 Z" stroke-width="1.04"/><path d="M65.3 64.60000000000001 v-6.8 h2.6 v6.8" stroke-width="1.04"/><path d="M72 62.00000000000001 V42.00000000000001 L78.5 34.5 L85 42.00000000000001 V62.00000000000001 Z" stroke-width="1.9"/><path d="M71 42.50000000000001 L78.5 33.3 L86 42.50000000000001" stroke-width="1.52"/><circle cx="78.5" cy="39.1" r="1.43" stroke-width="1.14"/><path d="M74.3 45.9 h4.4 v6.4 h-4.4 Z M74.3 53.6 h4.4 v4.4 h-4.4 Z" stroke-width="1.04"/><path d="M80.3 62.00000000000001 v-6.8 h2.6 v6.8" stroke-width="1.04"/><circle cx="78" cy="24" r="6" fill="#D7F24A" stroke="none"/><path d="M73.20 21.30 Q78 24 73.20 26.70 M82.80 21.30 Q78 24 82.80 26.70" stroke="#fff" stroke-width="0.72" fill="none"/><path d="M8 82 H92" stroke-width="2.6"/><path d="M50 82 V76" stroke-width="1.8"/></g>'.replace(/@/g, crestN) + '</svg>';
   }
 
-  // Top-down doubles court, to scale (23.77m x 10.97m), net vertical.
+  // doubles court, to scale (23.77 x 10.97m)
   var COURT = '<svg class="court-lines" viewBox="-300 -160 2977 1417" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
     '<rect class="surface" x="0" y="0" width="2377" height="1097"/>' +
     '<rect class="l" x="0" y="0" width="2377" height="1097"/>' +
@@ -18,7 +16,7 @@
     '<path class="net" d="M1188 -60 V1157"/>' +
     '<rect class="alley-b" x="0" y="960" width="2377" height="137" fill="none" stroke="none"/></svg>';
 
-  // Cable car climbing a San Francisco hill: home hero background (drawn, not a photo).
+  // cable car bg for the home hero
   var BRIDGE = '<svg class="bridge-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M40 778 V668 L100.0 614 L160 668 V778 M90.0 650 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M64 696 h34 v37 h-34 Z M114 778 v-44 h24 v44 M220 740 V630 L280.0 576 L340 630 V740 M270.0 612 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M244 658 h34 v37 h-34 Z M294 740 v-44 h24 v44 M1120 549 V439 L1180.0 385 L1240 439 V549 M1170.0 421 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M1144 467 h34 v37 h-34 Z M1194 549 v-44 h24 v44 " stroke-width="1.8"/><path d="M-40 806 L1640 449 M-40 828 L1640 471" stroke-width="2.2"/><g stroke-width="2.4"><g transform="translate(1420 489.6674199617677) rotate(-12) scale(0.6)"><rect x="-170" y="-130" width="340" height="120" rx="8"/><path d="M-196 -130 H196 M-184 -146 H184 M-170 -146 V-130 M170 -146 V-130 M-150 -146 Q0 -168 150 -146"/><rect x="-150" y="-114" width="40" height="46" rx="4"/><rect x="-98" y="-114" width="40" height="46" rx="4"/><rect x="-46" y="-114" width="40" height="46" rx="4"/><rect x="6" y="-114" width="40" height="46" rx="4"/><rect x="58" y="-114" width="40" height="46" rx="4"/><rect x="110" y="-114" width="40" height="46" rx="4"/><path d="M-170 -52 H170 M-110 -52 V-10 M110 -52 V-10 M-196 -10 H196"/><circle cx="-110" cy="4" r="14"/><circle cx="110" cy="4" r="14"/><path d="M-40 -168 V-196 M40 -168 V-196 M-40 -196 H40"/><path d="M-40 -82 h24 M16 -82 h24"/></g></g></svg>';
 
   var BALL = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#D7F24A"/>' +
@@ -46,7 +44,7 @@
       '<button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button></div></div>';
   }
 
-  // Theme: dark (default) = royal purple + gold, light = Grand Slam colors. Choice is remembered.
+  // theme toggle (dark default), saved in localStorage
   var root = document.documentElement;
   var MOON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>';
   var SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>';
@@ -77,7 +75,7 @@
   document.querySelectorAll(".court-hero").forEach(function (el) {
     el.insertAdjacentHTML("afterbegin", (el.classList.contains("bridge-bg") ? BRIDGE : "") + COURT + '<div class="bounce">' + BALL + "</div>");
   });
-  // Home: sit the two buttons in the bottom doubles alley, either side of the net.
+  // put the home buttons in the bottom alley, either side of the net
   var alleyRow = document.querySelector(".court-hero .btn-row.in-alley");
   if (alleyRow) {
     var aHero = alleyRow.closest(".court-hero");
@@ -96,8 +94,7 @@
     window.addEventListener("resize", placeInAlley);
     window.addEventListener("load", placeInAlley);
   }
-  // Courtside crew (Get Involved): line judges, ball kids, photographers with flashes.
-  // Drawn in court coordinates with the same viewBox as the court so everyone stands on the right line.
+  // get involved crew - uses the court's viewBox so positions line up
   var crewHero = document.querySelector(".court-hero.crew");
   if (crewHero) {
     var SK = ["#F1D3B5", "#E0B48C", "#C68C5E", "#A0683F", "#7A4A2A"];
@@ -140,7 +137,7 @@
         '<circle cx="0" cy="-78" r="9" fill="#fff"/></g>' +
         "</g>";
     }
-    // Zoom out on this page so the line judges behind both baselines are visible.
+    // zoomed out so the baseline judges fit
     var VB = "-520 -230 3417 1557";
     var courtSvg = crewHero.querySelector(".court-lines");
     courtSvg.setAttribute("viewBox", VB);
@@ -153,7 +150,7 @@
       // line judges behind each baseline
       judge(-190, 330, false, "caller") + judge(-190, 900, false) +
       judge(2567, 330, true) + judge(2567, 900, true, "caller2") +
-      // ball kids crouched at the net posts; they take turns running across the court along the net
+      // ball kids at the net posts, take turns running across
       ballKid(1120, -40, "runner r1") + ballKid(1256, 1200, "runner r2") +
       "</svg>";
     crewHero.insertAdjacentHTML("afterbegin", crewSvg);
@@ -186,7 +183,7 @@
     }
   }
 
-  // Full-screen heroes get a scroll cue down to the details.
+  // scroll cue on full screen heroes
   document.querySelectorAll(".court-hero, .box-hero").forEach(function (el) {
     var next = el.nextElementSibling && el.nextElementSibling.nextElementSibling;
     if (next && !next.id) next.id = "details";
@@ -194,7 +191,7 @@
     el.insertAdjacentHTML("beforeend", '<a class="scroll-cue" href="#' + target + '" aria-label="Scroll to details">' + BALL + "<span>scroll</span></a>");
   });
 
-  // Royal Box: a seated crowd under a Wimbledon awning that stands and applauds.
+  // royal box crowd, stands + claps
   var box = document.getElementById("royal-box");
   var ovation = function () {};
   if (box) {
@@ -212,7 +209,7 @@
     var scallop = "M0 56";
     for (var x = 0; x < W; x += 50) scallop += " q25 26 50 0";
     svg += '<path d="' + scallop + ' V56 Z" style="fill:var(--awning)"/><path d="' + scallop + '" fill="none" stroke="#C9A24A" stroke-width="2"/>';
-    // three rows, back to front; each row sinks behind a ledge when seated
+    // 3 rows back to front
     var rows = [{ y: 120, n: 13, s: .9 }, { y: 215, n: 12, s: .95 }, { y: 310, n: 11, s: 1 }];
     var k = 0;
     rows.forEach(function (row, ri) {
@@ -250,7 +247,7 @@
       timers.push(setTimeout(function () { box.classList.remove("standing"); }, long ? 7000 : 4600));
     };
     setTimeout(function () { ovation(false); }, 500);
-    // Scrolling back up to the box gets another round of applause.
+    // clap again when you scroll back up
     if ("IntersectionObserver" in window) {
       var left = false;
       new IntersectionObserver(function (entries) {
@@ -274,9 +271,8 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
 
-  // Waitlist form → Google Sheet (Apps Script web app in Krrish's dons account; see apps-script/Code.gs).
-  // Sent url-encoded with no-cors: Apps Script reads every field, multi-select answers included,
-  // but the response is opaque, so a completed request counts as success.
+  // waitlist -> google sheet via apps script (apps-script/Code.gs)
+  // no-cors so the response is opaque, just treat it as success
   var form = document.getElementById("waitlist-form");
   if (form) form.addEventListener("submit", function (ev) {
     ev.preventDefault();

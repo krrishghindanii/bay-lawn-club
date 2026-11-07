@@ -1,2 +1,4 @@
+.claude-flow/
 .DS_Store
-*.zip
+.claude/
+hostinger-upload/
